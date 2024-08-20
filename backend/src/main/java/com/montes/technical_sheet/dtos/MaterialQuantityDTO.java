@@ -4,6 +4,7 @@ import com.montes.technical_sheet.entities.MaterialQuantity;
 
 public class MaterialQuantityDTO {
     private Long materialId;
+    private String materialName;
     private Double materialCost;
     private Double quantity;
     private Double costUsed;
@@ -14,6 +15,7 @@ public class MaterialQuantityDTO {
 
     public MaterialQuantityDTO(MaterialQuantity materialQuantity) {
         this.materialId = materialQuantity.getMaterial().getId();
+        this.materialName = materialQuantity.getMaterial().getName();
         this.materialCost = materialQuantity.getMaterial().getCost();
         this.quantity = materialQuantity.getQuantity();
         this.costUsed = materialQuantity.getTotalCost();
@@ -21,6 +23,10 @@ public class MaterialQuantityDTO {
 
     public Long getMaterialId() {
         return materialId;
+    }
+
+    public String getMaterialName() {
+        return materialName;
     }
 
     public Double getMaterialCost() {

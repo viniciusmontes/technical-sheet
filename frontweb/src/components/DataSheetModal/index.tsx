@@ -1,9 +1,9 @@
-import './styles.css';
+import "./styles.css";
 
-import Modal from 'react-modal';
+import Modal from "react-modal";
 
-import { DataSheetDTO } from '../../models/data-sheet';
-import { formatPrice } from '../../utils/formatters';
+import { DataSheetDTO } from "../../models/data-sheet";
+import { formatPrice } from "../../utils/formatters";
 
 type ProductModalProps = {
   isOpen: boolean;
@@ -31,7 +31,8 @@ export default function DataSheetModal({
       <ul className="modal-list">
         {dataSheet.materials.map((material) => (
           <li key={material.materialId} className="modal-list-item">
-            Material ID: {material.materialId}, Custo do Material:{" "}
+            Material ID: {material.materialId}, Nome do Material :{" "}
+            {material.materialName}, Custo do Material:{" "}
             {formatPrice(material.materialCost)}, Quantidade:{" "}
             {material.quantity}, Custo Usado: {formatPrice(material.costUsed)}
           </li>
