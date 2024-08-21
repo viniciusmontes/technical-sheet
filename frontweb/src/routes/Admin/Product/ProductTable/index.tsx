@@ -3,6 +3,9 @@ import { ProductDTO } from "../../../../models/product";
 import { requestBackend } from "../../../../utils/requets";
 import { FaEye } from "react-icons/fa";
 import DataSheetModal from "../../../../components/DataSheetModal";
+import { formatPrice } from "../../../../utils/formatters";
+
+import "./styles.css";
 
 export default function ProductTable() {
   const [products, setProducts] = useState<ProductDTO[]>([]);
@@ -43,7 +46,7 @@ export default function ProductTable() {
             <tr key={product.id}>
               <td>{product.id}</td>
               <td>{product.name}</td>
-              <td>{product.price}</td>
+              <td>{formatPrice(product.price)}</td>
               <td>
                 <FaEye
                   onClick={() => handleOpenModal(product)}
