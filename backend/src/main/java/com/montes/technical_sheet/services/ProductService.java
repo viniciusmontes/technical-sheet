@@ -3,6 +3,9 @@ package com.montes.technical_sheet.services;
 import com.montes.technical_sheet.dtos.ProductDTO;
 import com.montes.technical_sheet.entities.Product;
 import com.montes.technical_sheet.repositories.ProductRepository;
+
+import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,7 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Transactional
     public List<ProductDTO> findAll() {
         List<Product> products = productRepository.findAll();
         return products.stream().map(x -> new ProductDTO(x)).toList();
@@ -25,6 +29,7 @@ public class ProductService {
         return product.map(x -> new ProductDTO(product.get()));
     }
 
+    @Transactional
     public ProductDTO save(ProductDTO productDTO) {
         Product product = new Product();
         product.setName(productDTO.getName());
