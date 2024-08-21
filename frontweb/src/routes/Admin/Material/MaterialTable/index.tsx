@@ -22,17 +22,17 @@ export default function MaterialTable() {
           <th></th>
         </tr>
       </thead>
-      {materials.map((material) => (
-        <tbody>
-          <tr>
+      <tbody>
+        {materials.map((material) => (
+          <tr key={material.id}>
             <td>{material.id}</td>
             <td>{material.name}</td>
             <td>{material.unitMeasurement}</td>
             <td>{formatPrice(material.cost)}</td>
             <td></td>
           </tr>
-        </tbody>
-      ))}
+        ))}
+      </tbody>
     </table>
   );
 }

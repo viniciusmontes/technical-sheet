@@ -35,6 +35,9 @@ public class MaterialService {
         material.setName(materialDTO.getName());
         material.setUnitMeasurement(materialDTO.getUnitMeasurement());
         material.setCost(materialDTO.getCost());
+
+        material = materialRepository.save(material);
+
         return new MaterialDTO(material);
     }
 

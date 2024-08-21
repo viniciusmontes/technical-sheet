@@ -1,7 +1,7 @@
 -- Insert materials
-INSERT INTO tb_material (id, name, unit_measurement, cost) VALUES (1, 'Macarrão', 'kg', 2.80);
-INSERT INTO tb_material (id, name, unit_measurement, cost) VALUES (2, 'Cebola', 'kg', 1.25);
-INSERT INTO tb_material (id, name, unit_measurement, cost) VALUES (3, 'Carne Moída', 'kg', 4.79);
+INSERT INTO tb_material (name, unit_measurement, cost) VALUES ('Macarrão', 'kg', 2.80);
+INSERT INTO tb_material (name, unit_measurement, cost) VALUES ('Cebola', 'kg', 1.25);
+INSERT INTO tb_material (name, unit_measurement, cost) VALUES ('Carne Moída', 'kg', 4.79);
 
 -- Insert technical sheets
 INSERT INTO tb_technical_sheet (id) VALUES (1);
