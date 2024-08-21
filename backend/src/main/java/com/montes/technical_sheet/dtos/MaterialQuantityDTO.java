@@ -6,6 +6,7 @@ public class MaterialQuantityDTO {
     private Long materialId;
     private String materialName;
     private Double materialCost;
+    private String unitMeasurement;
     private Double quantity;
     private Double costUsed;
 
@@ -16,6 +17,7 @@ public class MaterialQuantityDTO {
     public MaterialQuantityDTO(MaterialQuantity materialQuantity) {
         this.materialId = materialQuantity.getMaterial().getId();
         this.materialName = materialQuantity.getMaterial().getName();
+        this.unitMeasurement = materialQuantity.getMaterial().getUnitMeasurement();
         this.materialCost = materialQuantity.getMaterial().getCost();
         this.quantity = materialQuantity.getQuantity();
         this.costUsed = materialQuantity.getTotalCost();
@@ -27,6 +29,10 @@ public class MaterialQuantityDTO {
 
     public String getMaterialName() {
         return materialName;
+    }
+
+    public String getUnitMeasurement() {
+        return unitMeasurement;
     }
 
     public Double getMaterialCost() {

@@ -32,6 +32,7 @@ export default function DataSheetModal({
           <tr>
             <th>ID</th>
             <th>Nome do Material</th>
+            <th>Unidade de medida</th>
             <th>Custo do Material</th>
             <th>Quantidade</th>
             <th>Custo Usado</th>
@@ -42,6 +43,7 @@ export default function DataSheetModal({
             <tr key={material.materialId}>
               <td>{material.materialId}</td>
               <td>{material.materialName}</td>
+              <td>{material.unitMeasurement}</td>
               <td>{formatPrice(material.materialCost)}</td>
               <td>{material.quantity}</td>
               <td>{formatPrice(material.costUsed)}</td>

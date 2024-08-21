@@ -8,7 +8,10 @@ export default function Admin() {
         <div className="admin-sidebar">
           <h1>Tela Admin</h1>
           <Link to={"/admin/products"}>
-            <button>Ver produtos</button>
+            <button>Produtos</button>
+          </Link>
+          <Link to={"/admin/materials"}>
+            <button>Material</button>
           </Link>
         </div>
         <Outlet />
