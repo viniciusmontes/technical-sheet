@@ -7,7 +7,7 @@ INSERT INTO tb_material (name, unit_measurement, cost) VALUES ('Carne Moída', '
 INSERT INTO tb_technical_sheet (id) VALUES (1);
 
 -- Insert products
-INSERT INTO tb_product (id, name, price, technical_sheet_id) VALUES (1, 'Produto X', 15.00, 1);
+INSERT INTO tb_product (name, price, technical_sheet_id) VALUES ('Produto X', 15.00, 1);
 
 -- Insert material quantities
 INSERT INTO tb_material_quantity (material_id, technical_sheet_id, quantity) VALUES (1, 1, 0.320);

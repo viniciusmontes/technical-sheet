@@ -1,16 +1,11 @@
-import { useEffect, useState } from "react";
 import { MaterialDTO } from "../../../../models/material";
-import { requestBackend } from "../../../../utils/requets";
 import { formatPrice } from "../../../../utils/formatters";
 
-export default function MaterialTable() {
-  const [materials, setMaterials] = useState<MaterialDTO[]>([]);
-
-  useEffect(() => {
-    requestBackend({ url: "/materials" }).then((response) => {
-      setMaterials(response.data);
-    });
-  }, []);
+type Props = {
+  materials : MaterialDTO[]
+}
+export default function MaterialTable({materials} : Props) {
+  
   return (
     <table>
       <thead>
