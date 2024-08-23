@@ -4,6 +4,8 @@ import MaterialTable from "./MaterialTable";
 import { MaterialDTO } from "../../../models/material";
 import { requestBackend } from "../../../utils/requets";
 
+import './styles.css';
+
 export default function Material() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [materials, setMaterials] = useState<MaterialDTO[]>([]);
