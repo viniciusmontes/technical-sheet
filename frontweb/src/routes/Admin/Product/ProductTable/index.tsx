@@ -1,24 +1,21 @@
-import { useEffect, useState } from "react";
-import { ProductDTO } from "../../../../models/product";
-import { requestBackend } from "../../../../utils/requets";
-import { FaEye } from "react-icons/fa";
-import DataSheetModal from "../../../../components/DataSheetModal";
-import { formatPrice } from "../../../../utils/formatters";
-
 import "./styles.css";
 
-export default function ProductTable() {
-  const [products, setProducts] = useState<ProductDTO[]>([]);
+import { FaEye } from "react-icons/fa";
+
+import DataSheetModal from "../../../../components/DataSheetModal";
+import { ProductDTO } from "../../../../models/product";
+import { formatPrice } from "../../../../utils/formatters";
+import { useState } from "react";
+
+type Props = {
+  products: ProductDTO[];
+};
+
+export default function ProductTable({ products }: Props) {
   const [selectedProduct, setSelectedProduct] = useState<ProductDTO | null>(
     null
   );
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  useEffect(() => {
-    requestBackend({ url: "/products" }).then((response) => {
-      setProducts(response.data);
-    });
-  }, []);
 
   const handleOpenModal = (product: ProductDTO) => {
     setSelectedProduct(product);

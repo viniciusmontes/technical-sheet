@@ -31,7 +31,7 @@ export default function Product() {
       <h1>Produtos</h1>
       <button onClick={handleOpenModal}>Criar Novo Produto</button>
       <div className="product-table-container">
-        <ProductTable />
+        <ProductTable products={products} />
         <ProductModal
           isOpen={isModalOpen}
           onRequestClose={handleCloseModal}
