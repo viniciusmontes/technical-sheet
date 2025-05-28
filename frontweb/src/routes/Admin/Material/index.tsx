@@ -4,7 +4,7 @@ import MaterialTable from "./MaterialTable";
 import { MaterialDTO } from "../../../models/material";
 import { requestBackend } from "../../../utils/requets";
 
-import './styles.css';
+import "./styles.css";
 
 export default function Material() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,10 +29,12 @@ export default function Material() {
   };
 
   return (
-    <div className="material-container">
-      <h1>Tela de Materiais!</h1>
-      <button onClick={handleOpenModal}>Criar Novo Material</button>
-      <MaterialTable materials={materials}/>
+    <div className="container">
+      <h1>Materiais</h1>
+      <div className="container-button">
+        <button onClick={handleOpenModal}>Novo Material</button>
+      </div>
+      <MaterialTable materials={materials} />
       <MaterialModal
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}

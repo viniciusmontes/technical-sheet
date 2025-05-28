@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import "./styles.css";
 
@@ -19,8 +19,30 @@ export default function ProductModal({
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<ProductDTO>();
+
+  const [priceInput, setPriceInput] = useState("");
+
+  function moneyMask(value: string) {
+    value = value.replace(/\D/g, "");
+    const options = { minimumFractionDigits: 2 };
+    const result = new Intl.NumberFormat("pt-BR", options).format(
+      parseFloat(value) / 100
+    );
+    return "R$ " + result;
+  }
+
+  const handlePriceChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+    const masked = moneyMask(e.target.value);
+    setPriceInput(masked);
+    // Valor numérico real (sem R$ e pontuação) usado para enviar ao backend
+    const numericValue = parseFloat(
+      masked.replace("R$", "").replace(/\./g, "").replace(",", ".").trim()
+    );
+    setValue("price", numericValue, { shouldValidate: true });
+  };
 
   const onSubmit: SubmitHandler<ProductDTO> = (data) => {
     requestBackend({
@@ -34,12 +56,12 @@ export default function ProductModal({
   };
 
   if (!isOpen) {
-    return null; 
+    return null;
   }
 
   const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
-      onRequestClose(); 
+      onRequestClose();
     }
   };
 
@@ -61,15 +83,13 @@ export default function ProductModal({
           <div className="form-group">
             <label>Preço</label>
             <input
-              type="number"
-              {...register("price", {
-                required: "O preço é obrigatório!",
-              })}
+              type="text"
+              value={priceInput}
+              placeholder="R$0,00"
+              onChange={handlePriceChange}
             />
             {errors.price && (
-              <span className="error-message">
-                {errors.price.message}
-              </span>
+              <span className="error-message">{errors.price.message}</span>
             )}
           </div>
           <div className="button-container">

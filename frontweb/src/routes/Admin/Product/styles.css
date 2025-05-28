@@ -1,29 +1,18 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.base-card {
-  background-color: #fff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}
-
-.container {
+.product-container {
     display: flex;
     flex-direction: column;
     padding: 10px;
     background-color: #D6EEFE;
     border-radius: 10px;
 }
-.container h1 {
+.product-container h1 {
     color: #02346D;
 }
-.container-button {
+.product-container-button {
     display: flex;
     justify-content: flex-end;
 }
-.container-button button {
+.product-container-button button {
     border: none;
     cursor: pointer;
     background-color: #02346D;

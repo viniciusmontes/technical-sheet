@@ -31,7 +31,7 @@ table {
   }
   
   th {
-    background-color: #009879;
+    background-color: #02346D;
     color: #ffffff;
     font-weight: bold;
   }
@@ -45,7 +45,7 @@ table {
   }
   
   td:last-child svg {
-    color: #009879;
+    color: #02346D;
   }
   
   td:last-child svg:hover {

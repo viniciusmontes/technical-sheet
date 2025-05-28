@@ -3,6 +3,7 @@ import ProductTable from "./ProductTable";
 import { ProductDTO } from "../../../models/product";
 import { requestBackend } from "../../../utils/requets";
 import ProductModal from "../../../components/ProductModal";
+import "./styles.css";
 
 export default function Product() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,10 +28,12 @@ export default function Product() {
   };
 
   return (
-    <div className="product-container">
+    <div className="container">
       <h1>Produtos</h1>
-      <button onClick={handleOpenModal}>Criar Novo Produto</button>
-      <div className="product-table-container">
+      <div className="container-button">
+        <button onClick={handleOpenModal}>Novo produto</button>
+      </div>
+      <div className="table-container">
         <ProductTable products={products} />
         <ProductModal
           isOpen={isModalOpen}
